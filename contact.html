@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TravelTrinkets</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<h1>Welcome to TravelTrinkets</h1>
+<p>Travel and trinkets, where memories sparkle</p>
+<p>At TravelTrinkets, we believe that every journey deserves a keepsake</p>
+<p>Curated travel-inspired trinkets for your journey</p>
+<p>Unlock adventure with our exquisite trinkets</p>
+<p>Our tagline is, "collect moments not just keepsakes"</p>
+<header>
+    <img src="The logo.jpg" alt="TravelTrinkets logo featuring colorful chess pieces" style="height: 80%; width: 100%;">
+    <nav>
+        <ul>
+            <li><a href="about_us.html">About Us</a></li>
+            <li><a href="contact_us.html">Contact Us</a></li>
+            <li><a href="traveltrinkets.html">TravelTrinkets</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h2>Welcome</h2>
+    <p>Thanks for visiting TravelTrinkets</p>
+    <form id="userForm">
+        <fieldset>
+            <legend>User details</legend>
+            <label for="full_name">Full name:</label>
+            <input type="text" name="full_name" id="full_name" required autofocus>
+            <br>
+            <label for="email_id">Email id:</label>
+            <input type="email" name="email_id" id="email_id" required>
+            <br>
+            <label for="phone_number">Phone number:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" title="Enter a 10-digit phone number" required>
+            <br>
+            <label for="gender">Gender:</label>
+            <select name="gender" id="gender" required>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+            </select>
+            <br>
+            <textarea id="userMessage" name="userMessage" rows="4" cols="40" placeholder="Write your review about our website here..."></textarea>
+            <br>
+            <input type="submit" value="Next">
+        </fieldset>
+    </form>
+</main>
+<div id="confirmationDiv" style="display: none;"></div>
+<footer>
+    <p>© 2024 TravelTrinkets</p>
+</footer>
+<script>
+    document.getElementById("userForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        const full_name = document.getElementById("full_name").value.trim();
+        const email_id = document.getElementById("email_id").value.trim();
+        const phone_number = document.getElementById("phone").value.trim();
+        const gender = document.getElementById("gender").value;
+        const confirmationDiv = document.getElementById("confirmationDiv");
+        if (full_name !== "" && email_id !== "" && phone_number !== "" && gender) {
+            confirmationDiv.textContent = "Your response has been recorded. Thank you!";
+            confirmationDiv.style.display = "block";
+            document.querySelector("main").style.display = "none"; // Hide the form
+        } else {
+            confirmationDiv.textContent = "Please fill out all fields.";
+            confirmationDiv.style.display = "block";
+        }
+    });
+</script>
+</body>
+</html>
